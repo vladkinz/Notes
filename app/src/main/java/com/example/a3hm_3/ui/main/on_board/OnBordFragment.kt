@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.a3hm_3.R
 import com.example.a3hm_3.databinding.FragmentOnBordBinding
@@ -29,10 +30,18 @@ private lateinit var adapter: OnBoardAdapter
         adapter = OnBoardAdapter(getOnBoardList(), :: onClickStart, :: onSkip )
 
         binding.vpNotes.adapter = adapter
+
+        binding.dotsIndicator.setViewPager2(binding.vpNotes)
     }
 
     private fun  onClickStart(){
-        findNavController().navigate(R.id.mainFragment)
+        findNavController().navigate(
+            R.id.action_onBordFragment2_to_mainFragment,
+            null,
+            NavOptions.Builder()
+                .setPopUpTo(R.id.onBordFragment, true)
+                .build()
+        )
     }
 
     private fun onSkip(position:Int){

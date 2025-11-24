@@ -9,10 +9,13 @@
         android:id="@+id/onBordFragment"
         android:name="com.example.a3hm_3.ui.main.on_board.OnBordFragment"
         android:label="fragment_on_bord"
-        tools:layout="@layout/fragment_on_bord" >
+        tools:layout="@layout/fragment_on_bord">
+
         <action
             android:id="@+id/action_onBordFragment2_to_mainFragment"
-            app:popUpTo="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/onBordFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/mainFragment"

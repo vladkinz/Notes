@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/onBordFragment">
+    app:startDestination="@id/splashScreenFragment">
 
     <fragment
         android:id="@+id/onBordFragment"
@@ -19,7 +19,21 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.a3hm_3.ui.main.MainFragment"
+        android:name="com.example.a3hm_3.ui.main.main.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.example.a3hm_3.ui.main.main.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_onBordFragment"
+            app:destination="@id/onBordFragment" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

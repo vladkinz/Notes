@@ -11,15 +11,18 @@ import com.example.a3hm_3.R
 import com.example.a3hm_3.databinding.FragmentOnBordBinding
 import com.example.a3hm_3.ui.main.adapter.OnBoardAdapter
 import com.example.a3hm_3.ui.main.data.models.OnBoardModel
+import com.example.a3hm_3.ui.main.data.models.local.Pref
 
 
 class OnBordFragment : Fragment() {
+    private lateinit var pref: Pref
 private lateinit var binding: FragmentOnBordBinding
 private lateinit var adapter: OnBoardAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        pref = Pref(requireContext())
        binding = FragmentOnBordBinding.inflate(inflater, container, false)
         return binding.root
 
@@ -35,6 +38,7 @@ private lateinit var adapter: OnBoardAdapter
     }
 
     private fun  onClickStart(){
+        pref.setIntroShown()
         findNavController().navigate(
             R.id.action_onBordFragment2_to_mainFragment,
             null,
